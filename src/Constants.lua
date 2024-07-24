@@ -10,35 +10,35 @@ return {
 	GET_CACHE_DURATION = 4,
 
 	REQUEST_BUDGETS = {
-		[Enum.DataStoreRequestType.GetAsync] = {
+		[0] = {
 			INITIAL_BUDGET = 100,
 			RATE = 60,
 			RATE_PER_PLAYER = 10,
 			MAX_BUDGET_FACTOR = 3,
 		},
 
-		[Enum.DataStoreRequestType.SetIncrementAsync] = {
+		[1] = {
 			INITIAL_BUDGET = 100,
 			RATE = 60,
 			RATE_PER_PLAYER = 10,
 			MAX_BUDGET_FACTOR = 3,
 		},
 
-		[Enum.DataStoreRequestType.SetIncrementSortedAsync] = {
+		[4] = {
 			INITIAL_BUDGET = 50,
 			RATE = 30,
 			RATE_PER_PLAYER = 5,
 			MAX_BUDGET_FACTOR = 3,
 		},
 
-		[Enum.DataStoreRequestType.OnUpdate] = {
+		[5] = {
 			INITIAL_BUDGET = 30,
 			RATE = 30,
 			RATE_PER_PLAYER = 5,
 			MAX_BUDGET_FACTOR = 1,
 		},
 
-		[Enum.DataStoreRequestType.GetSortedAsync] = {
+		[3] = {
 			INITIAL_BUDGET = 10,
 			RATE = 5,
 			RATE_PER_PLAYER = 2,

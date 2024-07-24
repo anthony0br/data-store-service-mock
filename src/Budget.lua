@@ -1,7 +1,7 @@
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
+local task = require("@lune/task")
+local PLAYER_COUNT = 1
 
-local Constants = require(script.Parent.Constants)
+local Constants = require("./Constants")
 
 local function defaultBudget()
 	local budgets = {}
@@ -31,8 +31,10 @@ function Budget.new()
 
 	self.manual = false
 
-	RunService.PostSimulation:Connect(function(deltaSeconds)
-		self:tick(deltaSeconds)
+	task.spawn(function()
+		while true do
+			self:tick(task.wait())
+		end
 	end)
 
 	return self
@@ -72,7 +74,7 @@ function Budget:consumeBudget(requestTypes)
 end
 
 function Budget:updateBudgets()
-	local playerCount = #Players:GetPlayers()
+	local playerCount = PLAYER_COUNT
 
 	for requestType, options in Constants.REQUEST_BUDGETS do
 		local rate = options.RATE + playerCount * options.RATE_PER_PLAYER

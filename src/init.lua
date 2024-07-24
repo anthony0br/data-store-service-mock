@@ -1,21 +1,12 @@
-local RunService = game:GetService("RunService")
-
-local Budget = require(script.Budget)
-local Constants = require(script.Constants)
-local GlobalDataStore = require(script.GlobalDataStore)
-local SimulatedErrors = require(script.SimulatedErrors)
-local SimulatedYield = require(script.SimulatedYield)
-local validateString = require(script.validateString)
-
-local function assertServer()
-	if not RunService:IsServer() then
-		error("DataStore can't be accessed from the client")
-	end
-end
+local Budget = require("./Budget")
+local Constants = require("./Constants")
+local SimulatedErrors = require("./SimulatedErrors")
+local GlobalDataStore = require("./GlobalDataStore")
+local SimulatedYield = require("./SimulatedYield")
+local validateString = require("./validateString")
 
 local DataStoreServiceMock = {}
 DataStoreServiceMock.__index = DataStoreServiceMock
-
 function DataStoreServiceMock.new()
 	return setmetatable({
 		dataStores = {},
@@ -35,8 +26,6 @@ function DataStoreServiceMock.manual()
 end
 
 function DataStoreServiceMock:GetDataStore(name, scope)
-	assertServer()
-
 	scope = scope or "global"
 
 	validateString("name", name, Constants.MAX_NAME_LENGTH)

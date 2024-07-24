@@ -1,6 +1,6 @@
-local Constants = require(script.Parent.Constants)
-local DataStoreKeyInfo = require(script.Parent.DataStoreKeyInfo)
-local validateString = require(script.Parent.validateString)
+local Constants = require("./Constants")
+local DataStoreKeyInfo = require("./DataStoreKeyInfo")
+local validateString = require("./validateString")
 
 local function copyDeep(value)
 	if typeof(value) ~= "table" then
