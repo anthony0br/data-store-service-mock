@@ -1,4 +1,7 @@
-local task = require("@lune/task")
+if not task then
+	task = require("@lune/task")
+end
+
 local PLAYER_COUNT = 1
 
 local Constants = require("./Constants")

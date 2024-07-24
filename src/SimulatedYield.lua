@@ -1,3 +1,7 @@
+if not task then
+	task = require("@lune/task")
+end
+
 local SimulatedYield = {}
 SimulatedYield.__index = SimulatedYield
 

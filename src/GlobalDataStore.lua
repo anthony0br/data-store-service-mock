@@ -1,3 +1,7 @@
+if not task then
+	task = require("@lune/task")
+end
+
 local Constants = require("./Constants")
 local DataStoreKeyInfo = require("./DataStoreKeyInfo")
 local validateString = require("./validateString")
